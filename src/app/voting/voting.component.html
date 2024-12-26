@@ -1,0 +1,53 @@
+<div class="voting-app">
+  <header class="app-header">
+    <h1>Welcome to the voting app</h1>
+  </header>
+
+  <div class="candidates">
+    <!-- First candidate -->
+    <div class="candidate republicans">
+      <h2>Republicans</h2>
+      <img src="/assets/trump.png" class="candidate-photo" />
+      <p class="candidate-name">{{ candidates[0]?.name || 'Default Name' }}</p>
+      <p class="votes-amount">{{ candidates[0]?.voteCount || 0 }} votes</p>
+      <button (click)="vote(1)" class="vote-btn vote-red">Vote</button>
+    </div>
+
+    <!-- Vote chart -->
+    <div class="chart">
+      <div class="circular-chart">
+        <svg viewBox="0 0 36 36" class="circular-chart">
+          <path class="circle-bg"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831" />
+          <path class="circle candidate1"
+                [attr.stroke-dasharray]="candidate1Percent ? candidate1Percent + ', 100' : '0, 100'"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831" />
+          <!-- Modify this path for counterclockwise filling -->
+          <path class="circle candidate2"
+                [attr.stroke-dasharray]="candidate2Percent ? candidate2Percent + ', 100' : '0, 100'"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 0 0 31.831
+                  a 15.9155 15.9155 0 0 0 0 -31.831" />
+        </svg>
+      </div>
+    </div>
+
+
+    <!-- Second candidate -->
+    <div class="candidate democrats">
+      <h2>Democrats</h2>
+      <img src="/assets/kamala.png" alt="Photo of second candidate" class="candidate-photo" />
+      <p class="candidate-name">{{ candidates[1]?.name || 'Default Name' }}</p>
+      <p class="votes-amount">{{ candidates[1]?.voteCount || 0 }} votes</p>
+      <button (click)="vote(2)" class="vote-btn vote-blue">Vote</button>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <p>If you aren't connected, <a href="#" class="metamask-link">connect your metamask</a></p>
+  </footer>
+</div>

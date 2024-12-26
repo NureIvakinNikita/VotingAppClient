@@ -1,0 +1,109 @@
+.voting-app {
+  text-align: center;
+
+  .app-header {
+    background-color: black;
+    color: white;
+    padding: 1rem;
+
+    h1 {
+      margin: 0;
+    }
+  }
+
+  .candidates {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+
+    .candidate {
+      width: 20%;
+      text-align: center;
+
+      h2 {
+        margin-bottom: 1rem;
+      }
+
+      .candidate-photo {
+        width: 150px;
+        height: 200px;
+        object-fit: cover;
+        margin-bottom: 1rem;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .votes-amount {
+        font-weight: bold;
+        margin-top: 0.5rem;
+      }
+
+      .vote-btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-top: 1rem;
+
+        &.vote-red {
+          background-color: red;
+          color: white;
+        }
+
+        &.vote-blue {
+          background-color: blue;
+          color: white;
+        }
+      }
+    }
+
+    .chart {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      height: 200px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+        transform: rotate(180deg);
+      }
+
+      .circle-bg {
+        fill: none;
+        stroke: grey;
+        stroke-width: 3.8;
+      }
+
+      .circle {
+        fill: none;
+        stroke-width: 3.8;
+        stroke-linecap: round;
+        animation: progress 1s ease-out forwards;
+      }
+
+      .candidate1 {
+        stroke: red; // Колір для першого кандидата (червоний)
+      }
+
+      .candidate2 {
+        stroke: blue; // Колір для другого кандидата (синій)
+      }
+
+      @keyframes progress {
+        0% {
+          stroke-dasharray: 0 100;
+        }
+      }
+    }
+  }
+
+  .app-footer {
+    padding: 1rem;
+
+    .metamask-link {
+      color: pink;
+    }
+  }
+}
